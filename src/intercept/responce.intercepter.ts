@@ -12,7 +12,7 @@ export class ResponceInterceptor<T> implements NestInterceptor<T, any> {
   intercept(context: ExecutionContext, next: CallHandler<T>): Observable<any> {
     return next.handle().pipe(
       map((data) => ({
-        code: '200',
+        code: 200,
         msg: 'Success',
         data,
       })),

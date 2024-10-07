@@ -7,6 +7,7 @@ import { MottosModule } from './mottos/mottos.module';
 import { AuthModule } from './auth/auth.module';
 import { Motto } from './mottos/motto.entity';
 import { UserDailyModule } from './daily/daily.module';
+import { UserDaily } from './daily/daily.entity';
 
 @Module({
   imports: [
@@ -22,7 +23,7 @@ import { UserDailyModule } from './daily/daily.module';
         username: configService.get<string>('DB_USERNAME'),
         password: configService.get<string>('DB_PASSWORD'),
         database: configService.get<string>('DB_NAME'),
-        entities: [Motto],
+        entities: [Motto, UserDaily],
         synchronize: true,
       }),
       inject: [ConfigService],

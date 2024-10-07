@@ -31,6 +31,11 @@ export class UserDailyController {
     return this.UserDailyService.findOne(id);
   }
 
+  @Get('user/:userId')
+  findOneByUserId(@Param('userId') id: string): Promise<UserDaily> {
+    return this.UserDailyService.findOneByUserId(id);
+  }
+
   @Patch(':id')
   update(
     @Param('id') id: string,

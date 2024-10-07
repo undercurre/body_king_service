@@ -1,23 +1,28 @@
 import { Controller, Get, Post, Body, Param } from '@nestjs/common';
 import { MottosService } from './mottos.service';
 import { Motto } from './motto.entity';
+import { CreateMottoDto } from './dto/create.dto';
 
 @Controller('mottos')
 export class MottosController {
   constructor(private readonly mottosService: MottosService) {}
 
   @Post()
-  create(@Body() motto: Motto): Promise<Motto> {
-    return this.mottosService.createMotto(motto);
+  create(@Body() createMottoDto: CreateMottoDto): Promise<Motto> {
+    return this.mottosService.createMotto(createMottoDto);
   }
 
   @Get()
-  findAll(): Promise<Motto[]> {
-    return this.mottosService.findAll();
+  async findAll(): Promise<{ result: Motto[] }> {
+    const mottos = await this.mottosService.findAll();
+    return { result: mottos };
   }
 
   @Get('user/:userId')
-  findByUserId(@Param('userId') userId: string): Promise<Motto[]> {
-    return this.mottosService.findByUserId(userId);
+  async findByUserId(
+    @Param('userId') userId: string,
+  ): Promise<{ result: Motto[] }> {
+    const mottos = await this.mottosService.findByUserId(userId);
+    return { result: mottos };
   }
 }

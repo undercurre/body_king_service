@@ -13,11 +13,11 @@ export class CreateUserDailyDto {
 
   @IsOptional()
   @IsNumber()
-  step_count?: number;
+  step_count: number = 0;
 
   @IsOptional()
   @IsNumber()
-  weight?: number;
+  weight: number = 0;
 
   @IsNotEmpty()
   @IsDate()
@@ -29,29 +29,29 @@ export class CreateUserDailyDto {
 
   @IsOptional()
   @IsNumber()
-  water_cups?: number;
+  water_cups: number = 0;
 
   @IsOptional()
   @IsNumber()
-  drink_ml?: number;
+  drink_ml: number = 0;
 
   @IsOptional()
   @IsNumber()
-  code_lines?: number;
+  code_lines: number = 0;
 
   @IsOptional()
   @IsNumber()
-  snack_calories?: number;
+  snack_calories: number = 0;
 
   @IsOptional()
   @IsNumber()
-  video_game_time?: number;
+  video_game_time: number = 0;
 
   @IsOptional()
   @IsNumber()
-  exercise_calories?: number;
+  exercise_calories: number = 0;
 
   @IsOptional()
   @IsNumber()
-  music_time?: number;
+  music_time: number = 0;
 }
