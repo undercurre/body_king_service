@@ -24,7 +24,6 @@ export class UserDailyService {
     const now = new Date();
     if (isSecondDayOrLater(recent.updated_at, now)) {
       userDaily = this.UserDailyRepository.create({
-        ...createUserDailyDto,
         step_count: createUserDailyDto.step_count || 0,
         weight: createUserDailyDto.weight || 0,
         water_cups: createUserDailyDto.water_cups || 0,
@@ -42,7 +41,6 @@ export class UserDailyService {
       });
     } else {
       userDaily = this.UserDailyRepository.create({
-        ...createUserDailyDto,
         step_count: createUserDailyDto.step_count || recent.step_count,
         weight: createUserDailyDto.weight || recent.weight,
         water_cups: createUserDailyDto.water_cups || recent.water_cups,
