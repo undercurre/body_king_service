@@ -55,8 +55,10 @@ export class UserDailyService {
         exercise_calories:
           createUserDailyDto.exercise_calories || recent.exercise_calories,
         music_time: createUserDailyDto.music_time || recent.music_time,
-        sleep_start_time: new Date(recent.sleep_start_time) || new Date(),
-        sleep_end_time: new Date(recent.sleep_end_time) || new Date(),
+        sleep_start_time:
+          new Date(recent.sleep_start_time) || recent.sleep_start_time,
+        sleep_end_time:
+          new Date(recent.sleep_end_time) || recent.sleep_end_time,
         id: shortid.generate(),
       });
     }
